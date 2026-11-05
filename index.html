@@ -44,6 +44,9 @@ html.js-enabled .finale.revealed .finale-wink{animation:wink-v21 1.6s .5s steps(
   html.js-enabled .finale.revealed .finale-wink{animation:none;opacity:1;visibility:visible}
 }
 
+.youtube-audio-link{display:inline-block;background:#c90030;color:#fff;padding:14px 24px;border-radius:28px;font-weight:700;margin-top:14px;text-decoration:none}
+.youtube-audio-link[hidden]{display:none}
+.youtube-pending{opacity:.65;cursor:default}
 </style></head><body>
 <main>
 <section class="intro" aria-label="スイレモ紹介">
@@ -55,9 +58,11 @@ html.js-enabled .finale.revealed .finale-wink{animation:wink-v21 1.6s .5s steps(
 <section class="panel" aria-label="配信案内">
 <p class="notice">ただいま、笑顔を保温中。</p>
 <p>『リモネン！』</p>
-<p>11月11日 配信予定</p>
+<p>11月11日19時 YouTube先行公開予定</p>
+<span id="youtube-before-release" class="youtube-audio-link youtube-pending" aria-disabled="true">公開後にYouTubeで聴く</span>
+<a id="youtube-after-release" class="youtube-audio-link" href="https://youtu.be/qbDBeC6JZhw" target="_blank" rel="noopener noreferrer" aria-label="リモネン！をYouTubeで聴く" hidden>YouTubeで聴く</a>
 </section>
-<p class="small">配信日は審査状況により変更となる場合があります。<br></p>
+<p class="small">音楽ストアへの正式配信は準備中です。<br></p>
 <footer>© Sweet Lemonade</footer>
 </section>
 <!-- Only at the bottom: the full figure is visible and the wink points up into clean whitespace. -->
@@ -69,6 +74,21 @@ html.js-enabled .finale.revealed .finale-wink{animation:wink-v21 1.6s .5s steps(
 </section>
 </main>
 <script>
+(function(){
+'use strict';
+// 2026-11-11 19:00 JSTまでは公開予定を表示。YouTubeの予約公開設定は別途必要。
+const releaseAt=Date.parse('2026-11-11T19:00:00+09:00');
+const before=document.getElementById('youtube-before-release');
+const after=document.getElementById('youtube-after-release');
+function updateAudioLink(){
+  if(!before||!after)return;
+  const released=Date.now()>=releaseAt;
+  before.hidden=released;
+  after.hidden=!released;
+  if(!released)setTimeout(updateAudioLink,Math.min(releaseAt-Date.now()+1000,60000));
+}
+updateAudioLink();
+})();
 (function(){
 'use strict';
 const scene=document.querySelector('.finale');
