@@ -47,6 +47,18 @@ html.js-enabled .finale.revealed .finale-wink{animation:wink-v21 1.6s .5s steps(
 .youtube-audio-link{display:inline-block;background:#c90030;color:#fff;padding:14px 24px;border-radius:28px;font-weight:700;margin-top:14px;text-decoration:none}
 .youtube-audio-link[hidden]{display:none}
 .youtube-pending{opacity:.65;cursor:default}
+
+/* Music information: independent from the original intro and finale animation. */
+.music-info{padding:12px 22px 32px;text-align:left}
+.music-heading{text-align:center;margin:12px 0 8px;font-size:22px}
+.music-lead{text-align:center;color:#777;font-size:13px;margin:0 0 20px}
+.music-list{display:grid;gap:11px}
+.music-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px;background:#fff;border:1px solid #e8e2d5;border-radius:15px;color:inherit;text-decoration:none}
+.music-item[href]:hover,.music-item[href]:focus-visible{border-color:#c9aa4b;outline-offset:3px;background:#fffdf3}
+.music-name{font-weight:750;font-size:16px;overflow-wrap:anywhere}
+.music-meta{display:block;font-size:12px;color:#777;margin-top:4px}
+.music-action{font-size:12px;color:#765b26;flex-shrink:0}
+.music-item:not([href]) .music-action{color:#888}
 </style></head><body>
 <main>
 <section class="intro" aria-label="スイレモ紹介">
@@ -63,6 +75,19 @@ html.js-enabled .finale.revealed .finale-wink{animation:wink-v21 1.6s .5s steps(
 <a id="youtube-after-release" class="youtube-audio-link" href="https://youtu.be/NwM8drqbMSU" target="_blank" rel="noopener noreferrer" aria-label="リモネン！公式MVをYouTubeで見る" hidden>YouTubeでMVを見る</a>
 </section>
 <p class="small">音楽ストアへの正式配信は準備中です。<br></p>
+
+<section class="music-info" aria-labelledby="music-heading">
+<h2 id="music-heading" class="music-heading">MUSIC INFORMATION</h2>
+<p class="music-lead">スイレモの楽曲・MV情報</p>
+<div id="music-list" class="music-list">
+<a class="music-item" href="https://youtu.be/NwM8drqbMSU" target="_blank" rel="noopener noreferrer"><span><span class="music-name">リモネン！</span><span class="music-meta">GROUP · 公開中</span></span><span class="music-action">MVを見る ↗</span></a>
+<div class="music-item"><span><span class="music-name">恋する♡フラーレン</span><span class="music-meta">GROUP · リンク準備中</span></span><span class="music-action">準備中</span></div>
+<div class="music-item"><span><span class="music-name">幸せ地獄計画開始方</span><span class="music-meta">GROUP · リンク準備中</span></span><span class="music-action">準備中</span></div>
+<div class="music-item"><span><span class="music-name">🟡 イエロー</span><span class="music-meta">SOLO · リンク準備中</span></span><span class="music-action">準備中</span></div>
+<div class="music-item"><span><span class="music-name">🩷 ピンク</span><span class="music-meta">SOLO · リンク準備中</span></span><span class="music-action">準備中</span></div>
+<div class="music-item"><span><span class="music-name">🟢 グリーン</span><span class="music-meta">SOLO · リンク準備中</span></span><span class="music-action">準備中</span></div>
+</div>
+</section>
 <footer>© Sweet Lemonade</footer>
 </section>
 <!-- Only at the bottom: the full figure is visible and the wink points up into clean whitespace. -->
@@ -124,4 +149,32 @@ check();
 })();
 </script>
 
+
+<script>
+/* music.json is the single maintained source; HTML above is an offline fallback. */
+(async function(){
+  const host=document.getElementById('music-list');
+  if(!host)return;
+  try {
+    const response=await fetch('./music.json',{cache:'no-cache'});
+    if(!response.ok)throw new Error('catalog unavailable');
+    const data=await response.json();
+    if(!data || !Array.isArray(data.songs))throw new Error('invalid catalog');
+    const fragment=document.createDocumentFragment();
+    for(const song of data.songs){
+      if(!song || typeof song.title!=='string' || !song.title.trim())continue;
+      const validLink=typeof song.url==='string' && /^https:\/\//i.test(song.url);
+      const item=document.createElement(validLink?'a':'div');
+      item.className='music-item';
+      if(validLink){item.href=song.url;item.target='_blank';item.rel='noopener noreferrer';}
+      const wrap=document.createElement('span'),name=document.createElement('span'),meta=document.createElement('span'),action=document.createElement('span');
+      name.className='music-name';name.textContent=song.title;
+      meta.className='music-meta';meta.textContent=(song.category||'MUSIC')+' · '+(song.status||'情報準備中');
+      action.className='music-action';action.textContent=validLink?'リンクを見る ↗':'準備中';
+      wrap.append(name,meta);item.append(wrap,action);fragment.append(item);
+    }
+    if(fragment.childNodes.length)host.replaceChildren(fragment);
+  }catch(error){/* Preserve readable fallback markup. */}
+})();
+</script>
 </body></html>
