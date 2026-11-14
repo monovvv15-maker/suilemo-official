@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "songs": [
+    {
+      "id": "limonene",
+      "title": "リモネン！",
+      "category": "GROUP",
+      "status": "公開中",
+      "url": "https://youtu.be/NwM8drqbMSU"
+    },
+    {
+      "id": "fullerene",
+      "title": "恋する♡フラーレン",
+      "category": "GROUP",
+      "status": "リンク準備中",
+      "url": null
+    },
+    {
+      "id": "shiawase-jigoku",
+      "title": "幸せ地獄計画開始方",
+      "category": "GROUP",
+      "status": "リンク準備中",
+      "url": null
+    },
+    {
+      "id": "yellow",
+      "title": "🟡 イエロー",
+      "category": "SOLO",
+      "status": "リンク準備中",
+      "url": null
+    },
+    {
+      "id": "pink",
+      "title": "🩷 ピンク",
+      "category": "SOLO",
+      "status": "リンク準備中",
+      "url": null
+    },
+    {
+      "id": "green",
+      "title": "🟢 グリーン",
+      "category": "SOLO",
+      "status": "リンク準備中",
+      "url": null
+    }
+  ]
+}
