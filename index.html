@@ -140,6 +140,13 @@ html[data-season="christmas"] main{position:relative;z-index:1}
 @media (max-width:600px){html[data-season="christmas"] .season-tree{right:-136px;top:19vh;width:305px;opacity:.30}}
 @media (max-width:380px){html[data-season="christmas"] .season-tree{right:-146px;width:290px;opacity:.27}}
 @media (prefers-reduced-transparency:reduce){html[data-season="christmas"] .season-tree{opacity:.18}}
+
+/* Winter teaser V01: no song title or release date; independent from music data. */
+.winter-teaser{margin:13px auto 30px;padding:22px 12px;text-align:center;background:transparent;border-top:1px solid #e8e2d5;border-bottom:1px solid #e8e2d5}
+.winter-teaser-kicker{font-size:11px;letter-spacing:.19em;font-weight:750;color:#8a755b;margin:0 0 11px}
+.winter-teaser-heading{font-size:clamp(21px,5.5vw,31px);font-weight:850;letter-spacing:.015em;line-height:1.45;margin:0;color:#443d35}
+.winter-teaser-green{color:#32644b}.winter-teaser-red{color:#a54247}.winter-teaser-yellow{color:#a77a20}
+.winter-teaser-note{font-size:12px;letter-spacing:.08em;color:#9a846d;margin:9px 0 0}
 </style></head><body>
 <!-- Christmas V01 seasonal backdrop: decorative only; existing content stays above it. -->
 <svg class="season-tree" aria-hidden="true" focusable="false" viewBox="0 0 360 540" xmlns="http://www.w3.org/2000/svg">
@@ -201,6 +208,11 @@ html[data-season="christmas"] main{position:relative;z-index:1}
 <p class="talk-hint">選択式の遊びです。入力した文章を送信する機能ではありません。</p>
 <div class="talk-result" id="talk-result" hidden></div>
 </div>
+</section>
+<section class="winter-teaser" aria-label="冬の新曲予告">
+<p class="winter-teaser-kicker">SUILEMO · WINTER 2026</p>
+<h2 class="winter-teaser-heading"><span class="winter-teaser-green">Something</span> <span class="winter-teaser-red">is</span> <span class="winter-teaser-yellow">coming.</span></h2>
+<p class="winter-teaser-note">♪ Coming Soon</p>
 </section>
 <section class="music-info" aria-labelledby="music-heading">
 <h2 id="music-heading" class="music-heading">MUSIC INFORMATION</h2>
