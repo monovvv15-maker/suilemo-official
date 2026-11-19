@@ -96,6 +96,38 @@ html.js-enabled .finale.revealed .finale-wink{animation:wink-v21 1.6s .5s steps(
 .social-x{font-size:21px;font-weight:500;line-height:1}.social-arrow{color:#8a755b;font-size:19px}
 .social-rule{display:block;width:66%;max-width:290px;height:1px;background:#c5a363;margin:10px auto 12px}
 .social-caption{color:#8a755b;font-size:12px;line-height:1.7;margin:0}
+
+/* SUILEMO TALK V12: isolated from original hero, music catalog and finale. */
+.talk-section{width:100%;margin:26px auto 23px;padding:22px 14px 18px;border:1px solid #e8e2d5;border-radius:18px;background:#fffdf7;text-align:left}
+.talk-section h2{font-size:20px;text-align:center;color:#34302c;margin:0 0 6px}
+.talk-lead{text-align:center;font-size:12px;color:#8a755b;margin:0 0 18px}
+.talk-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee8db;padding:0 0 12px;margin-bottom:12px;color:#5d5040;font-size:14px;font-weight:700}
+.talk-online{font-size:11px;color:#528263;font-weight:500}
+.talk-stream{min-height:155px;max-height:350px;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:9px;background:#fff;border:1px solid #eee8db;border-radius:13px;padding:13px;scroll-behavior:smooth}
+.talk-welcome{text-align:center;color:#777;font-size:13px;margin:auto}
+.talk-msg{display:flex;align-items:flex-start;gap:7px;max-width:95%}
+.talk-msg.you{align-self:flex-end;flex-direction:row-reverse}
+.talk-face{min-width:24px;font-size:17px}
+.talk-bubble{font-size:13px;line-height:1.65;color:#34302c;padding:9px 12px;border-radius:12px;background:#f3f1ec;overflow-wrap:anywhere}
+.talk-msg.yellow .talk-bubble{background:#fff2bf}
+.talk-msg.pink .talk-bubble{background:#ffe3ed}
+.talk-msg.green .talk-bubble{background:#ddf1df}
+.talk-msg.you .talk-bubble{background:#e8edff}
+.talk-msg.shout .talk-bubble{font-size:clamp(19px,5.6vw,26px);font-weight:850;line-height:1.35;padding:17px 12px;letter-spacing:.02em}
+.talk-read{color:#b47d94;text-align:right;font-size:10px;margin-top:-2px}
+.talk-options{display:grid;gap:8px;margin-top:13px}
+.talk-options button{appearance:none;border:1px solid #d9bd82;background:#fffaf0;color:#34302c;border-radius:14px;padding:12px 14px;text-align:left;font:600 13px/1.5 system-ui,-apple-system,sans-serif;cursor:pointer}
+.talk-options button:active{background:#fff0cc;transform:scale(.99)}
+.talk-options button:focus-visible{outline:2px solid #9c783b;outline-offset:2px}
+.talk-options button:disabled{opacity:.6;cursor:wait}
+.talk-hint{font-size:11px;color:#8a755b;margin:9px 1px 0}
+.talk-typing{font-size:12px;color:#8a755b;min-height:18px;margin:7px 3px 0}
+.talk-result{margin-top:13px;text-align:center;padding:14px;background:#fff;border:1px solid #e8e2d5;border-radius:12px}
+.talk-result p{font-size:12px;color:#68645e;margin:0 0 10px}
+.talk-result a{display:inline-block;border:1px solid #d9bd82;background:#fffaf0;border-radius:99px;color:#34302c;text-decoration:none;padding:12px 16px;font-size:13px;font-weight:700}
+.talk-result a:focus-visible{outline:2px solid #9c783b;outline-offset:3px}
+.talk-restart{margin-top:12px;border:0;background:transparent;color:#806834;text-decoration:underline;font:600 12px system-ui;cursor:pointer}
+@media(prefers-reduced-motion:reduce){.talk-stream{scroll-behavior:auto}.talk-options button{transform:none}}
 </style></head><body>
 <main>
 <section class="intro" aria-label="スイレモ紹介">
@@ -120,6 +152,20 @@ html.js-enabled .finale.revealed .finale-wink{animation:wink-v21 1.6s .5s steps(
 <article class="member-card pink"><div class="member-symbol" aria-hidden="true">🩷</div><span class="member-name">PINK</span><span class="member-desc">天然な歌姫<br>なぜか答えはいつも正解</span></article>
 <article class="member-card green"><div class="member-symbol" aria-hidden="true">🟢</div><span class="member-name">GREEN</span><span class="member-desc">知的な実験マニア<br>発想はいつも規格外</span></article>
 </div>
+</section>
+<section class="talk-section" id="suilemo-talk" aria-labelledby="talk-title">
+<h2 id="talk-title">🍋 スイレモとおしゃべり</h2>
+<p class="talk-lead">話しかけてみよう。今日は誰が返事するかな？</p>
+<div class="talk-head"><span>🟡 🩷 🟢　スイレモ</span><span class="talk-online">● おしゃべり中</span></div>
+<div class="talk-stream" id="talk-stream" role="log" aria-label="スイレモの会話"><p class="talk-welcome" id="talk-welcome">下のメッセージを選んで、送信してね。</p></div>
+<p class="talk-typing" id="talk-typing" aria-live="polite"></p>
+<div class="talk-options" id="talk-options">
+<button type="button" data-intro="mood">最近どう？　<span aria-hidden="true">➤</span></button>
+<button type="button" data-intro="science">何か研究してる？　<span aria-hidden="true">➤</span></button>
+<button type="button" data-intro="curious">何か面白い話して！　<span aria-hidden="true">➤</span></button>
+</div>
+<p class="talk-hint">選択式の遊びです。入力した文章を送信する機能ではありません。</p>
+<div class="talk-result" id="talk-result" hidden></div>
 </section>
 <section class="music-info" aria-labelledby="music-heading">
 <h2 id="music-heading" class="music-heading">MUSIC INFORMATION</h2>
@@ -212,6 +258,100 @@ check();
     }
     if(fragment.childNodes.length)host.replaceChildren(fragment);
   }catch(error){/* Preserve readable fallback markup. */}
+})();
+</script>
+
+<script>
+/* SUILEMO TALK V12: curated dialogue, no user text sent to a server. */
+(function(){
+'use strict';
+const root=document.getElementById('suilemo-talk');
+if(!root)return;
+const stream=document.getElementById('talk-stream'),options=document.getElementById('talk-options'),typing=document.getElementById('talk-typing'),result=document.getElementById('talk-result');
+const intro={
+ mood:{labels:['ちょっとへこんでる？','無限大ってなに？','恋の話、聞きたい！'],songs:['yellow','pink','fullerene'],replies:[['yellow','今日はちょっと考えすぎちゃって……。'],['pink','何か話そうか♡']]},
+ science:{labels:['電子の話を聞きたい','化学実験はどう？','レモンって何の香り？'],songs:['green','hell','lim'],replies:[['green','ちょうど研究の話をしていました。'],['yellow','私にも分かる話にしてよ！']]},
+ curious:{labels:['とびきり面白い話は？','恋って化学なの？','マイナスをプラスにして！'],songs:['pink','fullerene','yellow'],replies:[['pink','うん、面白いこといっぱいあるよ♡'],['green','どの話から始めましょうか。']]}
+};
+const stories={
+ yellow:{title:'マイナス思考×2',catalog:'yellow',lines:[['yellow','マジへこむ……。'],['green','マイナスにマイナスを掛けると？'],['yellow','プラスに決まってるでしょ！'],['pink','じゃあ、もうプラスだね。'],['yellow','……あれ？'],['yellow','どんだけーーーっ！！']]},
+ pink:{title:'♾️',catalog:'pink',lines:[['pink','ねえ、無限大ってどこまで続くの？'],['green','終わりがないということですね。'],['pink','じゃあ、答えを見つけるまで何年かかるの？'],['yellow','そんなの問題によるでしょ！'],['pink','フェルマーーー！！！'],['yellow','人の名前叫んだだけじゃん！！'],['green','ちなみに最終定理の証明には約350年かかりました。'],['pink','……まだ考えてたんだね♡']]},
+ green:{title:'真パイパイスター',catalog:'green',lines:[['green','電子が励起されました。'],['yellow','で、どうなるの？'],['green','パイパイスターーーッ！！！'],['yellow','ええええっ！？'],['pink','うん。']]},
+ lim:{title:'リモネン！',catalog:'limonene',lines:[['green','このレモンにはリモネンが含まれています。'],['pink','じゃあ恋の成分も入ってる？'],['yellow','入ってないわ！']]},
+ fullerene:{title:'恋する♡フラーレン',catalog:'fullerene',lines:[['pink','同じ炭素なのに、違うカタチなんだよね。'],['yellow','そうそう！'],['pink','じゃあ性格が違っても仲良くできるね。'],['green','……それ、いい答えですね。']]},
+ hell:{title:'幸せ地獄計画開始方',catalog:'shiawase-jigoku',lines:[['green','オルト、メタ、パラ。どれにします？'],['pink','全部ください。'],['yellow','ラーメン屋じゃないよ！']]}
+};
+const faces={yellow:'🟡',pink:'🩷',green:'🟢',you:'あなた'};
+let generation=0,busy=false,round=0;
+const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+const choose=a=>a[Math.floor(Math.random()*a.length)];
+function message(who,value){
+ const item=document.createElement('div');item.className='talk-msg '+who+(value.includes('ーーー')?' shout':'');
+ const face=document.createElement('span');face.className='talk-face';face.textContent=who==='you'?'':faces[who];
+ const bubble=document.createElement('span');bubble.className='talk-bubble';bubble.textContent=value;
+ item.append(face,bubble);stream.append(item);stream.scrollTop=stream.scrollHeight;
+ if(who==='you'){const read=document.createElement('div');read.className='talk-read';read.textContent=choose(['既読 ♡ 2','既読 2','既読 ♡']);stream.append(read)}
+}
+function setChoices(choices,callback){
+ options.replaceChildren();
+ choices.forEach((label,i)=>{const button=document.createElement('button');button.type='button';button.textContent=label+'　➤';button.addEventListener('click',()=>callback(i));options.append(button)});
+}
+async function sequence(lines,token){
+ for(let i=0;i<lines.length;i++){
+  if(token!==generation)return;
+  const [who,value]=lines[i];
+  typing.textContent=faces[who]+' 入力中…';
+  const wait=who==='yellow'?450+Math.random()*550:who==='pink'?700+Math.random()*800:850+Math.random()*950;
+  await pause(wait);
+  if(token!==generation)return;
+  typing.textContent='';message(who,value);
+  await pause(220);
+ }
+}
+function startIntro(k,label){
+ const token=++generation;busy=true;round++;result.hidden=true;result.replaceChildren();options.replaceChildren();
+ document.getElementById('talk-welcome')?.remove();
+ message('you',label);
+ (async()=>{
+  const lines=intro[k].replies.slice();
+  // A small natural variation without changing approved punchlines.
+  if(Math.random()<.22)lines.push(['yellow','あ、今の返信、ちょっと焦った！']);
+  await sequence(lines,token);
+  if(token!==generation)return;
+  busy=false;setChoices(intro[k].labels,i=>startSong(intro[k].songs[i],intro[k].labels[i]));
+ })();
+}
+async function showSongLink(story,token){
+ if(token!==generation)return;
+ const p=document.createElement('p');p.textContent='この話、曲にもなってるよ。';
+ const title=document.createElement('strong');title.textContent=story.title;
+ result.replaceChildren(p,title);
+ const line=document.createElement('div');line.style.marginTop='10px';
+ try{
+  const response=await fetch('./music.json',{cache:'no-store'});
+  if(!response.ok)throw Error('catalog');
+  const json=await response.json();
+  if(token!==generation)return;
+  const s=Array.isArray(json.songs)?json.songs.find(x=>x.id===story.catalog):null;
+  if(s&&typeof s.url==='string'&&/^https:\/\/youtu(?:\.be|be\.com)\//i.test(s.url)){
+   const link=document.createElement('a');link.href=s.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='YouTubeで聴く ↗';line.append(link);
+  }else{line.textContent='YouTubeリンクは準備中です。'}
+ }catch(e){if(token!==generation)return;line.textContent='楽曲一覧から確認してね。'}
+ result.append(line);
+ const restart=document.createElement('button');restart.type='button';restart.className='talk-restart';restart.textContent='別のお話をする';restart.addEventListener('click',reset);
+ result.append(restart);result.hidden=false;
+}
+function startSong(key,label){
+ const token=++generation;busy=true;options.replaceChildren();result.hidden=true;
+ message('you',label);
+ (async()=>{await sequence(stories[key].lines,token);if(token!==generation)return;busy=false;await showSongLink(stories[key],token)})();
+}
+function reset(){
+ ++generation;busy=false;stream.replaceChildren();typing.textContent='';result.hidden=true;result.replaceChildren();
+ const welcome=document.createElement('p');welcome.className='talk-welcome';welcome.id='talk-welcome';welcome.textContent='何か送ってみてね。';stream.append(welcome);
+ setChoices(['最近どう？','何か研究してる？','何か面白い話して！'],i=>{const keys=['mood','science','curious'];startIntro(keys[i],['最近どう？','何か研究してる？','何か面白い話して！'][i])});
+}
+options.querySelectorAll('[data-intro]').forEach(button=>button.addEventListener('click',()=>startIntro(button.dataset.intro,button.textContent.trim().replace(/➤/g,'').trim())));
 })();
 </script>
 </body></html>
