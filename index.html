@@ -220,7 +220,7 @@ html[data-season="christmas"] main{position:relative;z-index:1}
 <div id="music-list" class="music-list">
 <a class="music-item" href="https://youtu.be/NwM8drqbMSU" target="_blank" rel="noopener noreferrer"><span><span class="music-name">リモネン！</span><span class="music-meta">GROUP · 公開中</span></span><span class="music-action">MVを見る ↗</span></a>
 <a class="music-item" href="https://youtu.be/4ayQyUQq2WI" target="_blank" rel="noopener noreferrer"><span><span class="music-name">恋する♡フラーレン</span><span class="music-meta">GROUP · 公開中</span></span><span class="music-action">MVを見る</span></a>
-<div class="music-item"><span><span class="music-name">幸せ地獄計画開始方</span><span class="music-meta">GROUP · リンク準備中</span></span><span class="music-action">準備中</span></div>
+<a class="music-item" href="https://youtu.be/50ssc_6uaHM" target="_blank" rel="noopener noreferrer"><span><span class="music-name">幸せ地獄計画開始方</span><span class="music-meta">GROUP · 公開中</span></span><span class="music-action">MVを見る ↗</span></a>
 <div class="music-item"><span><span class="music-name">🟡 イエロー</span><span class="music-meta">SOLO · リンク準備中</span></span><span class="music-action">準備中</span></div>
 <div class="music-item"><span><span class="music-name">🩷 ピンク</span><span class="music-meta">SOLO · リンク準備中</span></span><span class="music-action">準備中</span></div>
 <div class="music-item"><span><span class="music-name">🟢 グリーン</span><span class="music-meta">SOLO · リンク準備中</span></span><span class="music-action">準備中</span></div>
@@ -286,7 +286,7 @@ check();
   const host=document.getElementById('music-list');
   if(!host)return;
   try {
-    const response=await fetch('./music.json?v=fullerene-20261119-2',{cache:'no-store'});
+    const response=await fetch('./music.json?v=shiawase-20261119-1',{cache:'no-store'});
     if(!response.ok)throw new Error('catalog unavailable');
     const data=await response.json();
     if(!data || !Array.isArray(data.songs))throw new Error('invalid catalog');
