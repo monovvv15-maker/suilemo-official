@@ -147,6 +147,32 @@ html[data-season="christmas"] main{position:relative;z-index:1}
 .winter-teaser-heading{font-size:clamp(21px,5.5vw,31px);font-weight:850;letter-spacing:.015em;line-height:1.45;margin:0;color:#443d35}
 .winter-teaser-green{color:#32644b}.winter-teaser-red{color:#a54247}.winter-teaser-yellow{color:#a77a20}
 .winter-teaser-note{font-size:12px;letter-spacing:.08em;color:#9a846d;margin:9px 0 0}
+
+/* MUSIC INFORMATION V02: isolated card layout; original sections remain unchanged. */
+.music-info .music-heading{letter-spacing:.055em}
+.music-info .music-underline{height:3px;width:92px;margin:14px auto;border-radius:99px;background:linear-gradient(90deg,#a7c9ab 0 33%,#f2d16a 33% 66%,#e9a3bf 66% 100%)}
+.music-info .music-lead{line-height:1.8;margin-bottom:24px}
+.music-info .music-list{gap:15px}
+.music-info .mv-card{background:#fff;border:1px solid #ebe3d8;border-left:4px solid #b5c77d;box-shadow:0 5px 18px rgba(92,68,41,.055);border-radius:19px;padding:13px;display:grid;grid-template-columns:minmax(115px,40%) minmax(0,1fr);gap:15px;align-items:center;min-height:142px}
+.music-info .mv-card[data-song="fullerene"]{border-left-color:#dba3be}
+.music-info .mv-card[data-song="shiawase-jigoku"]{border-left-color:#b4a18b}
+.music-info .mv-cover{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:12px;background:#eee;display:block}
+.music-info .mv-detail{min-width:0}
+.music-info .mv-tag{display:inline-flex;align-items:center;gap:6px;color:#8a755b;font-size:10px;letter-spacing:.11em;font-weight:800;margin-bottom:7px}
+.music-info .mv-dot{height:7px;width:7px;border-radius:50%;background:#75a27f}
+.music-info .mv-title{font-size:clamp(15px,4.2vw,18px);font-weight:850;line-height:1.45;margin:0 0 11px;overflow-wrap:anywhere}
+.music-info .mv-watch{display:inline-flex;align-items:center;justify-content:center;border-radius:100px;padding:11px 15px;min-height:42px;background:#403732;color:#fff;text-decoration:none;white-space:nowrap;font-size:12px;font-weight:800;box-shadow:0 3px 0 rgba(53,43,36,.13)}
+.music-info .mv-watch:focus-visible{outline:3px solid #bd9650;outline-offset:3px}
+.music-info .mv-watch:active{transform:translateY(2px);box-shadow:none}
+.music-info .solo-heading{text-align:center;margin:37px 0 9px;font-size:16px;letter-spacing:.12em}
+.music-info .solo-lead{text-align:center;margin:0 0 16px;font-size:12px;color:#857a6d}
+.music-info .solo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.music-info .solo-card{border:1px solid #ece4d8;background:#fffaf1;border-radius:15px;padding:16px 5px 15px;text-align:center;min-width:0}
+.music-info .solo-bar{height:4px;width:43px;margin:0 auto 12px;border-radius:99px}
+.music-info .solo-card strong{display:block;font-size:13px;margin-bottom:9px}
+.music-info .solo-card span{display:block;font-size:9px;letter-spacing:.035em;color:#998e82;font-weight:700}
+@media(max-width:390px){.music-info .mv-card{grid-template-columns:minmax(98px,39%) minmax(0,1fr);gap:11px;padding:10px}.music-info .mv-watch{padding:10px 11px;font-size:11px}.music-info .mv-title{font-size:15px}}
+@media(prefers-reduced-motion:no-preference){.music-info .mv-watch{transition:transform .1s,box-shadow .1s}}
 </style></head><body>
 <!-- Christmas V01 seasonal backdrop: decorative only; existing content stays above it. -->
 <svg class="season-tree" aria-hidden="true" focusable="false" viewBox="0 0 360 540" xmlns="http://www.w3.org/2000/svg">
@@ -216,14 +242,19 @@ html[data-season="christmas"] main{position:relative;z-index:1}
 </section>
 <section class="music-info" aria-labelledby="music-heading">
 <h2 id="music-heading" class="music-heading">MUSIC INFORMATION</h2>
-<p class="music-lead">スイレモの楽曲・MV情報</p>
-<div id="music-list" class="music-list">
-<a class="music-item" href="https://youtu.be/NwM8drqbMSU" target="_blank" rel="noopener noreferrer"><span><span class="music-name">リモネン！</span><span class="music-meta">GROUP · 公開中</span></span><span class="music-action">MVを見る ↗</span></a>
-<a class="music-item" href="https://youtu.be/4ayQyUQq2WI" target="_blank" rel="noopener noreferrer"><span><span class="music-name">恋する♡フラーレン</span><span class="music-meta">GROUP · 公開中</span></span><span class="music-action">MVを見る</span></a>
-<a class="music-item" href="https://youtu.be/50ssc_6uaHM" target="_blank" rel="noopener noreferrer"><span><span class="music-name">幸せ地獄計画開始方</span><span class="music-meta">GROUP · 公開中</span></span><span class="music-action">MVを見る ↗</span></a>
-<div class="music-item"><span><span class="music-name">🟡 イエロー</span><span class="music-meta">SOLO · リンク準備中</span></span><span class="music-action">準備中</span></div>
-<div class="music-item"><span><span class="music-name">🩷 ピンク</span><span class="music-meta">SOLO · リンク準備中</span></span><span class="music-action">準備中</span></div>
-<div class="music-item"><span><span class="music-name">🟢 グリーン</span><span class="music-meta">SOLO · リンク準備中</span></span><span class="music-action">準備中</span></div>
+<div class="music-underline" aria-hidden="true"></div>
+<p class="music-lead">スイレモの音楽と、ちょっと不思議な世界へ。</p>
+<div id="music-list" class="music-list" aria-label="公開中の公式ミュージックビデオ">
+<article class="mv-card" data-song="limonene"><img class="mv-cover" loading="lazy" alt="リモネン！の公式MVサムネイル" src="https://i.ytimg.com/vi/NwM8drqbMSU/hqdefault.jpg"><div class="mv-detail"><span class="mv-tag"><span class="mv-dot"></span>OFFICIAL MV</span><h3 class="mv-title">リモネン！</h3><a class="mv-watch" href="https://youtu.be/NwM8drqbMSU" target="_blank" rel="noopener noreferrer">▶ MVを楽しむ</a></div></article>
+<article class="mv-card" data-song="fullerene"><img class="mv-cover" loading="lazy" alt="恋する♡フラーレンの公式MVサムネイル" src="https://i.ytimg.com/vi/4ayQyUQq2WI/hqdefault.jpg"><div class="mv-detail"><span class="mv-tag"><span class="mv-dot"></span>OFFICIAL MV</span><h3 class="mv-title">恋する♡フラーレン</h3><a class="mv-watch" href="https://youtu.be/4ayQyUQq2WI" target="_blank" rel="noopener noreferrer">▶ 恋の世界へ</a></div></article>
+<article class="mv-card" data-song="shiawase-jigoku"><img class="mv-cover" loading="lazy" alt="幸せ地獄計画開始方の公式MVサムネイル" src="https://i.ytimg.com/vi/50ssc_6uaHM/hqdefault.jpg"><div class="mv-detail"><span class="mv-tag"><span class="mv-dot"></span>OFFICIAL MV</span><h3 class="mv-title">幸せ地獄計画開始方</h3><a class="mv-watch" href="https://youtu.be/50ssc_6uaHM" target="_blank" rel="noopener noreferrer">▶ 計画開始！</a></div></article>
+</div>
+<h3 class="solo-heading">SOLO PROJECTS</h3>
+<p class="solo-lead">3人の音楽も、もうすぐ。</p>
+<div id="solo-list" class="solo-grid" aria-label="ソロ作品の準備状況">
+<div class="solo-card"><div class="solo-bar" style="background:#d4a627"></div><strong>イエロー</strong><span>COMING SOON</span></div>
+<div class="solo-card"><div class="solo-bar" style="background:#df84a5"></div><strong>ピンク</strong><span>COMING SOON</span></div>
+<div class="solo-card"><div class="solo-bar" style="background:#6baa80"></div><strong>グリーン</strong><span>COMING SOON</span></div>
 </div>
 </section>
 <div class="social-links" aria-label="公式SNS">
@@ -281,30 +312,44 @@ check();
 
 
 <script>
-/* music.json is the single maintained source; HTML above is an offline fallback. */
+/* music.json remains the source of link/status truth; static markup is offline fallback. */
 (async function(){
-  const host=document.getElementById('music-list');
-  if(!host)return;
-  try {
-    const response=await fetch('./music.json?v=shiawase-20261119-1',{cache:'no-store'});
-    if(!response.ok)throw new Error('catalog unavailable');
-    const data=await response.json();
-    if(!data || !Array.isArray(data.songs))throw new Error('invalid catalog');
-    const fragment=document.createDocumentFragment();
-    for(const song of data.songs){
-      if(!song || typeof song.title!=='string' || !song.title.trim())continue;
-      const validLink=typeof song.url==='string' && /^https:\/\//i.test(song.url);
-      const item=document.createElement(validLink?'a':'div');
-      item.className='music-item';
-      if(validLink){item.href=song.url;item.target='_blank';item.rel='noopener noreferrer';}
-      const wrap=document.createElement('span'),name=document.createElement('span'),meta=document.createElement('span'),action=document.createElement('span');
-      name.className='music-name';name.textContent=song.title;
-      meta.className='music-meta';meta.textContent=(song.category||'MUSIC')+' · '+(song.status||'情報準備中');
-      action.className='music-action';action.textContent=validLink?'リンクを見る ↗':'準備中';
-      wrap.append(name,meta);item.append(wrap,action);fragment.append(item);
-    }
-    if(fragment.childNodes.length)host.replaceChildren(fragment);
-  }catch(error){/* Preserve readable fallback markup. */}
+ const host=document.getElementById('music-list'),soloHost=document.getElementById('solo-list');
+ if(!host||!soloHost)return;
+ try{
+  const response=await fetch('./music.json?v=music-cards-20261119-1',{cache:'no-store'});
+  if(!response.ok)throw new Error('catalog unavailable');
+  const data=await response.json();
+  if(!data||!Array.isArray(data.songs))throw new Error('invalid catalog');
+  const labels={'limonene':'▶ MVを楽しむ','fullerene':'▶ 恋の世界へ','shiawase-jigoku':'▶ 計画開始！'};
+  const colors={'yellow':'#d4a627','pink':'#df84a5','green':'#6baa80'};
+  const videos=document.createDocumentFragment(),solos=document.createDocumentFragment();
+  for(const song of data.songs){
+   if(!song||typeof song.title!=='string')continue;
+   const valid=typeof song.url==='string'&&/^https:\/\/youtu(?:\.be|be\.com)\//i.test(song.url);
+   if(song.category==='SOLO'){
+    const card=document.createElement('div');card.className='solo-card';
+    const bar=document.createElement('div');bar.className='solo-bar';bar.style.background=colors[song.id]||'#b4a18b';
+    const title=document.createElement('strong');title.textContent=song.title.replace(/^[🟡🩷🟢]\s*/u,'');
+    const status=document.createElement('span');status.textContent=valid?'公開中':'COMING SOON';
+    card.append(bar,title,status);
+    if(valid){const a=document.createElement('a');a.href=song.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='▶ 聴く';a.className='mv-watch';card.append(a);}
+    solos.append(card);continue;
+   }
+   const card=document.createElement('article');card.className='mv-card';card.dataset.song=song.id||'';
+   if(valid){
+    const videoId=(song.url.match(/(?:youtu\.be\/|[?&]v=)([\w-]{11})/)||[])[1];
+    if(videoId){const img=document.createElement('img');img.className='mv-cover';img.loading='lazy';img.alt=song.title+'の公式MVサムネイル';img.src='https://i.ytimg.com/vi/'+videoId+'/hqdefault.jpg';card.append(img);}
+   }
+   const detail=document.createElement('div');detail.className='mv-detail';
+   const tag=document.createElement('span');tag.className='mv-tag';const dot=document.createElement('span');dot.className='mv-dot';tag.append(dot,document.createTextNode(valid?'OFFICIAL MV':'COMING SOON'));
+   const title=document.createElement('h3');title.className='mv-title';title.textContent=song.title;detail.append(tag,title);
+   if(valid){const a=document.createElement('a');a.className='mv-watch';a.href=song.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=labels[song.id]||'▶ MVを見る';detail.append(a);}
+   card.append(detail);videos.append(card);
+  }
+  if(videos.childNodes.length)host.replaceChildren(videos);
+  if(solos.childNodes.length)soloHost.replaceChildren(solos);
+ }catch(e){/* Keep functional static fallback when offline. */}
 })();
 </script>
 
