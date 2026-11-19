@@ -245,7 +245,7 @@ html[data-season="christmas"] main{position:relative;z-index:1}
 <div class="music-underline" aria-hidden="true"></div>
 <p class="music-lead">スイレモの音楽と、ちょっと不思議な世界へ。</p>
 <div id="music-list" class="music-list" aria-label="公開中の公式ミュージックビデオ">
-<article class="mv-card" data-song="limonene"><img class="mv-cover" loading="lazy" alt="リモネン！の公式MVサムネイル" src="https://i.ytimg.com/vi/NwM8drqbMSU/hqdefault.jpg"><div class="mv-detail"><span class="mv-tag"><span class="mv-dot"></span>OFFICIAL MV</span><h3 class="mv-title">リモネン！</h3><a class="mv-watch" href="https://youtu.be/NwM8drqbMSU" target="_blank" rel="noopener noreferrer">▶ MVを楽しむ</a></div></article>
+<article class="mv-card" data-song="limonene"><img class="mv-cover" loading="lazy" alt="リモネン！の公式MVサムネイル" src="https://i.ytimg.com/vi/NwM8drqbMSU/hqdefault.jpg"><div class="mv-detail"><span class="mv-tag"><span class="mv-dot"></span>OFFICIAL MV</span><h3 class="mv-title">リモネン！</h3><a class="mv-watch" href="https://youtu.be/NwM8drqbMSU" target="_blank" rel="noopener noreferrer">🍋 レモンの世界へ！</a></div></article>
 <article class="mv-card" data-song="fullerene"><img class="mv-cover" loading="lazy" alt="恋する♡フラーレンの公式MVサムネイル" src="https://i.ytimg.com/vi/4ayQyUQq2WI/hqdefault.jpg"><div class="mv-detail"><span class="mv-tag"><span class="mv-dot"></span>OFFICIAL MV</span><h3 class="mv-title">恋する♡フラーレン</h3><a class="mv-watch" href="https://youtu.be/4ayQyUQq2WI" target="_blank" rel="noopener noreferrer">▶ 恋の世界へ</a></div></article>
 <article class="mv-card" data-song="shiawase-jigoku"><img class="mv-cover" loading="lazy" alt="幸せ地獄計画開始方の公式MVサムネイル" src="https://i.ytimg.com/vi/50ssc_6uaHM/hqdefault.jpg"><div class="mv-detail"><span class="mv-tag"><span class="mv-dot"></span>OFFICIAL MV</span><h3 class="mv-title">幸せ地獄計画開始方</h3><a class="mv-watch" href="https://youtu.be/50ssc_6uaHM" target="_blank" rel="noopener noreferrer">▶ 計画開始！</a></div></article>
 </div>
@@ -321,7 +321,7 @@ check();
   if(!response.ok)throw new Error('catalog unavailable');
   const data=await response.json();
   if(!data||!Array.isArray(data.songs))throw new Error('invalid catalog');
-  const labels={'limonene':'▶ MVを楽しむ','fullerene':'▶ 恋の世界へ','shiawase-jigoku':'▶ 計画開始！'};
+  const labels={'limonene':'🍋 レモンの世界へ！','fullerene':'▶ 恋の世界へ','shiawase-jigoku':'▶ 計画開始！'};
   const colors={'yellow':'#d4a627','pink':'#df84a5','green':'#6baa80'};
   const videos=document.createDocumentFragment(),solos=document.createDocumentFragment();
   for(const song of data.songs){
