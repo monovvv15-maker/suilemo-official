@@ -97,7 +97,12 @@ html.js-enabled .finale.revealed .finale-wink{animation:wink-v21 1.6s .5s steps(
 .social-rule{display:block;width:66%;max-width:290px;height:1px;background:#c5a363;margin:10px auto 12px}
 .social-caption{color:#8a755b;font-size:12px;line-height:1.7;margin:0}
 
-/* SUILEMO TALK V12: isolated from original hero, music catalog and finale. */
+/* SUILEMO TALK V13: isolated from original hero, music catalog and finale. */
+.talk-entry{text-align:center;padding:10px 0 5px}
+.talk-entry .talk-lead{margin:0 0 13px}
+.talk-enter{appearance:none;border:1px solid #d9bd82;background:#fffaf0;color:#34302c;border-radius:99px;padding:12px 22px;font:600 13px/1.4 system-ui,-apple-system,sans-serif;cursor:pointer}
+.talk-enter:active{background:#fff0cc}
+.talk-enter:focus-visible{outline:2px solid #9c783b;outline-offset:3px}
 .talk-section{width:100%;margin:26px auto 23px;padding:22px 14px 18px;border:1px solid #e8e2d5;border-radius:18px;background:#fffdf7;text-align:left}
 .talk-section h2{font-size:20px;text-align:center;color:#34302c;margin:0 0 6px}
 .talk-lead{text-align:center;font-size:12px;color:#8a755b;margin:0 0 18px}
@@ -154,8 +159,9 @@ html.js-enabled .finale.revealed .finale-wink{animation:wink-v21 1.6s .5s steps(
 </div>
 </section>
 <section class="talk-section" id="suilemo-talk" aria-labelledby="talk-title">
-<h2 id="talk-title">🍋 スイレモとおしゃべり</h2>
-<p class="talk-lead">話しかけてみよう。今日は誰が返事するかな？</p>
+<h2 id="talk-title">SUILEMO TALK</h2>
+<div class="talk-entry" id="talk-entry"><p class="talk-lead">🟡 🩷 🟢　何か届いてるみたい。</p><button class="talk-enter" id="talk-enter" type="button">♧　メッセージを見る　→</button></div>
+<div id="talk-chat" hidden>
 <div class="talk-head"><span>🟡 🩷 🟢　スイレモ</span><span class="talk-online">● おしゃべり中</span></div>
 <div class="talk-stream" id="talk-stream" role="log" aria-label="スイレモの会話"><p class="talk-welcome" id="talk-welcome">下のメッセージを選んで、送信してね。</p></div>
 <p class="talk-typing" id="talk-typing" aria-live="polite"></p>
@@ -166,6 +172,7 @@ html.js-enabled .finale.revealed .finale-wink{animation:wink-v21 1.6s .5s steps(
 </div>
 <p class="talk-hint">選択式の遊びです。入力した文章を送信する機能ではありません。</p>
 <div class="talk-result" id="talk-result" hidden></div>
+</div>
 </section>
 <section class="music-info" aria-labelledby="music-heading">
 <h2 id="music-heading" class="music-heading">MUSIC INFORMATION</h2>
@@ -268,6 +275,8 @@ check();
 const root=document.getElementById('suilemo-talk');
 if(!root)return;
 const stream=document.getElementById('talk-stream'),options=document.getElementById('talk-options'),typing=document.getElementById('talk-typing'),result=document.getElementById('talk-result');
+const entry=document.getElementById('talk-entry'),chat=document.getElementById('talk-chat'),enter=document.getElementById('talk-enter');
+enter.addEventListener('click',()=>{entry.hidden=true;chat.hidden=false;options.querySelector('button')?.focus({preventScroll:true})});
 const intro={
  mood:{labels:['ちょっとへこんでる？','無限大ってなに？','恋の話、聞きたい！'],songs:['yellow','pink','fullerene'],replies:[['yellow','今日はちょっと考えすぎちゃって……。'],['pink','何か話そうか♡']]},
  science:{labels:['電子の話を聞きたい','化学実験はどう？','レモンって何の香り？'],songs:['green','hell','lim'],replies:[['green','ちょうど研究の話をしていました。'],['yellow','私にも分かる話にしてよ！']]},
