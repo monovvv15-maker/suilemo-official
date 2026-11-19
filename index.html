@@ -132,7 +132,7 @@ check();
   const host=document.getElementById('music-list');
   if(!host)return;
   try {
-    const response=await fetch('./music.json',{cache:'no-cache'});
+    const response=await fetch('./music.json?v=fullerene-20261119-2',{cache:'no-store'});
     if(!response.ok)throw new Error('catalog unavailable');
     const data=await response.json();
     if(!data || !Array.isArray(data.songs))throw new Error('invalid catalog');
